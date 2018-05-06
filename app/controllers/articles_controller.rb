@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     # render plain: params[:article].inspect
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = 'Article was successfully created'
+      flash[:success] = 'Article was successfully created'
       # flash is a temporary message, that will show the first time, but won't on refresh
       # flash html defined in layouts > application.html.erb
       # html was later moved to a partial _messages in layouts folder
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
   def update
 
     if @article.update(article_params)
-      flash[:notice] = 'Article was successfully updated'
+      flash[:success] = 'Article was successfully updated'
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -46,7 +46,7 @@ class ArticlesController < ApplicationController
 
     @article.destroy
 
-    flash[:notice] = 'Article was successfully deleted'
+    flash[:danger] = 'Article was successfully deleted'
     redirect_to articles_path
   end
 
