@@ -13,9 +13,14 @@
                   last updated: <%= time_ago_in_words(article.updated_at) %> ago</small>
           </div>
         </div>
-        <div class="article-rating">
+        <div class="article-latlng">
           Lat/Long: <%= article.latitude %>,<%= article.longitude %>
         </div>
+        <% if article.destination %>
+          <div class="article-dest">
+            Destination: <%= article.destination.title %>
+          </div>
+        <% end %>
         <div class="article-rating">
           Rating: <%= article.rating %>
         </div>

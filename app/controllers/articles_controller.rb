@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @destinations = Destination.all
   end
 
   def edit
@@ -17,9 +18,11 @@ class ArticlesController < ApplicationController
 
   def create
     # render plain: params[:article].inspect
+    @destinations = Destination.all
     @article = Article.new(article_params)
     @article.user = current_user
-    @article.destination = Destination.first
+    # @article.destination_id = params[:destination_id].to_i
+    @article.destination = Destination.last
     if @article.save
       flash[:success] = 'Article was successfully created'
       # flash is a temporary message, that will show the first time, but won't on refresh
@@ -56,7 +59,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :description, :rating, :address, :latitude, :longitude)
+    params.require(:article).permit(:title, :description, :rating, :address, :latitude, :longitude, :destination_id)
   end
 
   def set_article
