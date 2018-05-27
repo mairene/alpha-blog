@@ -14,6 +14,9 @@
           </div>
         </div>
         <div class="article-rating">
+          Lat/Long: <%= article.latitude %>,<%= article.longitude %>
+        </div>
+        <div class="article-rating">
           Rating: <%= article.rating %>
         </div>
           <% if logged_in? && (current_user == article.user || current_user.admin?) %>
