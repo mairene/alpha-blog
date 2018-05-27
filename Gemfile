@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'will_paginate', '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
+gem 'geocoder'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
