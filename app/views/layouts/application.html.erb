@@ -267,6 +267,8 @@
     let pinsIdMap = {us : "us_pin",
                      ca : "ca_pin"};
     console.log(pinsIdMap);
+    let irene = '<%= @name %>';
+    console.log(irene)
     jQuery(document).ready(function() {
       jQuery('#vmap').vectorMap(
         {
@@ -277,7 +279,7 @@
             borderWidth: 1,
             color: '#f4f3f0',
             colors: countryColors,
-            enableZoom: true,
+            enableZoom: false,
             hoverColor: '#c9dfaf',
             hoverOpacity: null,
             normalizeFunction: 'linear',
@@ -289,13 +291,9 @@
             pinMode: 'content',
             onRegionClick: function(element, code, region)
             {
-                let message = 'You clicked "'
-                    + region
-                    + '" which has the code: '
-                    + code.toUpperCase();
-
-                console.log(message);
-                debugger;
+                let articleCont = document.getElementById('articleCont');
+                articleCont.scrollIntoView();
+                window.location.href = '<%= destinations_path %>';
             }
         }
       );
@@ -320,10 +318,10 @@
       <div id="vmap"></div>
     </div>
     <div style="display:none">
-      <div id="us_pin">US PIN HERE</div>
+      <div id="us_pin"></div>
       <div id="ca_pin">CA PIN HERE</div>
     </div>
-    <div class="container">
+    <div class="container" id="articleCont">
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
