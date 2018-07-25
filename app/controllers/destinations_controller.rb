@@ -15,6 +15,7 @@ class DestinationsController < ApplicationController
   # GET /destinations/new
   def new
     @destination = Destination.new
+    @countries = Country.all
   end
 
   # GET /destinations/1/edit
@@ -76,6 +77,6 @@ class DestinationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def destination_params
-      params.require(:destination).permit(:title, :address, :current, :latitutde, :longitude)
+      params.require(:destination).permit(:title, :address, :current, :latitutde, :longitude, :country_id)
     end
 end

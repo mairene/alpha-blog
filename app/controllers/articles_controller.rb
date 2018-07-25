@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.user = current_user
     # @article.destination_id = params[:destination_id].to_i
-    @article.destination = Destination.last
+    # @article.destination = Destination.last
     if @article.save
       flash[:success] = 'Article was successfully created'
       # flash is a temporary message, that will show the first time, but won't on refresh
