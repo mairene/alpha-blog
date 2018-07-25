@@ -1,7 +1,11 @@
 <%= form_for @destination do |f| %>
   <fieldset class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.select(:title) do %>
+      <% @countries.each do |country| %>
+        <%= content_tag(:option, country[:name], value: country[:name]) %>
+      <% end %>
+    <% end %>
   </fieldset>
 
   <fieldset class="form-group">
