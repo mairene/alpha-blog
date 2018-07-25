@@ -15,7 +15,6 @@ class DestinationsController < ApplicationController
   # GET /destinations/new
   def new
     @destination = Destination.new
-    @countries = Country.all
   end
 
   # GET /destinations/1/edit

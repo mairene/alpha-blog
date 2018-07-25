@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 
   def index
   	@name = 'Irene'
+  	@articles = Article.all
   end
 
 end

@@ -10,6 +10,19 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
+    country_destinations = Destination.where(country_id: params[:id])
+    country_arts = []
+    country_destinations.each do |dest|
+      articles = Article.where(destination_id: dest.id).all
+      p '*************************************'
+      p articles
+      country_arts.push(articles)
+      p 'country arts in block'
+      p country_arts
+    end
+    p 'country arts outside of block'
+    p country_arts
+    @country_articles = country_arts
   end
 
   # GET /countries/new

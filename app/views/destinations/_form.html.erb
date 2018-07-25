@@ -10,15 +10,6 @@
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :country_id %>
-    <%= f.select(:country_id) do %>
-      <%= @countries.each do |c| %>
-        <%= content_tag(:option, c.name, value: c.id) %>
-      <% end %>
-    <% end %>
-  </fieldset>
-
-  <fieldset class="form-group">
     <%= f.label :current %>
     <%= f.check_box :current %>
   </fieldset>
