@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def get_destinations
+    @dests_for_pins = Destination.all
+  end
 end
